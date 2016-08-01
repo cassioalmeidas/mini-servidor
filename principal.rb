@@ -8,8 +8,9 @@ loop do
   requisicao = socket.gets
 
   STDERR.puts requisicao
+  STDERR.puts Time.now
 
-  Thread.start(socket, requisicao) do |sessao, requisicao|
-    ServidorWeb.new(socket, requisicao).servir()
+  Thread.start(socket, requisicao) do |s, r|
+    ServidorWeb.new(s, r).servir()
   end
 end
