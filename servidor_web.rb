@@ -55,7 +55,7 @@ class ServidorWeb
     else
       mensagem = "Arquivo não encontrado!\n"
       @socket.print "HTTP/1.1 404 Not Found\r\n"+
-                   "Content-Type: text/plain\r\n"+
+                   "Content-Type: text/plain; charset=utf-8\r\n"+
                    "Content-Length: #{mensagem.size}\r\n"
                    "Connection: close\r\n"
 
