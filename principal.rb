@@ -1,7 +1,12 @@
 require 'socket'
 require './servidor_web.rb'
 
-servidor = TCPServer.new('localhost', '2323')
+HOST = 'localhost'
+PORTA = 2323
+
+servidor = TCPServer.new(HOST, PORTA)
+
+STDERR.puts "Servidor rodando em http://#{HOST}:#{PORTA}"
 
 loop do 
   socket = servidor.accept
