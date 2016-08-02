@@ -1,0 +1,4 @@
+Arquivo em formato de texto(.txt)
+
+
+<h2>Isso aqui é só para testar o Content-Type mesmo!</h2>
