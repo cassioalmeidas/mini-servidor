@@ -44,7 +44,7 @@ class ServidorWeb
     if File.exists?(@caminho) && !File.directory?(@caminho)
       File.open(@caminho, "rb") do |arquivo|
         @socket.print "HTTP/1.0 200 OK\r\n"+
-                     "Content-Type: #{obter_tipo_conteudo(arquivo)}\r\n"+
+                     "Content-Type: #{obter_tipo_conteudo(arquivo)}; charset=utf-8\r\n"+
                      "Content-Length: #{arquivo.size}\r\n"+
                      "Connection: close\r\n"    
 
