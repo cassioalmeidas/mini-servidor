@@ -39,7 +39,7 @@ class ServidorWeb
 
   def servir
     @caminho = arquivo_requisitado(@requisicao) 
-    + @caminho = File.join(@caminho, 'index.html') if File.directory?(@caminho)
+    @caminho = File.join(@caminho, 'index.html') if File.directory?(@caminho)
 
     if File.exists?(@caminho) && !File.directory?(@caminho)
       File.open(@caminho, "rb") do |arquivo|
