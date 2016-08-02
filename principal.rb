@@ -14,11 +14,10 @@ loop do # loop infinito, ou seja, o servidor vai ficar rodando até o processor 
   socket = servidor.accept # Fica esperando por uma requisição e retorna um objeto do tipo socket
   requisicao = socket.gets # Retorna as linha de requisição
 
-  puts requisicao # Exibe no terminal a requisição feita
-  puts Time.now # Exibe no terminal a data e hora atual
-
   # Criar thread em ruby(em modo usuário)
   Thread.start(socket, requisicao) do |s, r|
     ServidorWeb.new(s, r).servir # Instancia um objeto e chama o método servir()
+    puts requisicao # Exibe no terminal a requisição feita
+    puts "Thread terminada em #{Time.now}\n\r"
   end
 end
