@@ -49,7 +49,7 @@ class ServidorWeb
 
     if File.exists?(@caminho) && !File.directory?(@caminho)
       File.open(@caminho, "rb") do |arquivo| # Abre o arquivo @caminho e joga para variável arquivo(aberto)
-        @socket.print "HTTP/1.0 200 OK\r\n"+ # Método print escreve no socket
+        @socket.print "HTTP/1.1 200 OK\r\n"+ # Método print escreve no socket
                      "Server: MiniServidorWeb\r\n"+
                      "Content-Type: #{obter_tipo_conteudo(arquivo)}; charset=utf-8\r\n"+
                      "Content-Length: #{arquivo.size}\r\n"+
