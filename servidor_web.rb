@@ -34,7 +34,7 @@ class ServidorWeb
       next if parte.empty? || parte == '.'
       parte == '..' ? caminho_limpo.pop : caminho_limpo << parte
     end
-    File.join(RAIZ_WEB, *caminho_limpo)
+    File.join(RAIZ_WEB, caminho_limpo)
   end
 
   def servir
