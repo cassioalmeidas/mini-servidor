@@ -50,6 +50,7 @@ class ServidorWeb
     if File.exists?(@caminho) && !File.directory?(@caminho)
       File.open(@caminho, "rb") do |arquivo| # Abre o arquivo @caminho e joga para variável arquivo(aberto)
         @socket.print "HTTP/1.0 200 OK\r\n"+ # Método print escreve no socket
+                     "Server: MiniServidorWeb\r\n"+
                      "Content-Type: #{obter_tipo_conteudo(arquivo)}; charset=utf-8\r\n"+
                      "Content-Length: #{arquivo.size}\r\n"+
                      "Connection: close\r\n"    
@@ -61,6 +62,7 @@ class ServidorWeb
     else # Caso não exista o arquivo retorna 404
       mensagem = "Arquivo não encontrado!(404 Not Found)\n"
       @socket.print "HTTP/1.1 404 Not Found\r\n"+
+                   "Server: MiniServidorWeb\r\n"+
                    "Content-Type: text/plain; charset=utf-8\r\n"+
                    "Content-Length: #{mensagem.size}\r\n"
                    "Connection: close\r\n"
