@@ -62,6 +62,7 @@ class ServidorWeb
       @socket.print "\r\n"
       @socket.print mensagem
     end
+    @socket.close
   end
 
 end
